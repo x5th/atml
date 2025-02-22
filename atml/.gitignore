@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+error_log.txt
+*.csv
+*.txt
+.ipynb_checkpoints/
+model_version.txt
+dashboard.html
+ensemble_model_simulation.png
+plots/
