@@ -3,6 +3,13 @@ import warnings
 import logging
 from binance.client import Client
 
+
+def get_binance_client():
+    api_key = os.environ.get("BINANCE_API_KEY")
+    secret_key = os.environ.get("BINANCE_SECRET_KEY")
+    # Use the live environment by not passing testnet=True (or explicitly set testnet=False)
+    return Client(api_key, secret_key)
+
 # Suppress Warnings
 warnings.filterwarnings("ignore")
 
@@ -13,12 +20,3 @@ logging.basicConfig(
     format='%(asctime)s %(levelname)s: %(message)s'
 )
 
-def get_binance_client():
-    """Fetches Binance Client using environment variables for API keys.
-    Make sure you set:
-      export BINANCE_API_KEY='...'
-      export BINANCE_SECRET_KEY='...'
-    """
-    api_key = os.environ.get("BINANCE_API_KEY")
-    secret_key = os.environ.get("BINANCE_SECRET_KEY")
-    return Client(api_key, secret_key, testnet=True)
